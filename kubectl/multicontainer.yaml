@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multipod
+specs:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: almalinux
+    image: almalinux
+    commaand: ["sleep","200"]
+# OR WE CAN DIVIDE YAML BY PROVIDING THE --- AT THE START AND AT THE END ---
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: secondcontainer
+specs:
+  containers:
+  - name: almalinux
+    image: almalinux
+    command: ["sleep","200"]
+---
