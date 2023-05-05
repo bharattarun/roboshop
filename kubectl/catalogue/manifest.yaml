@@ -17,7 +17,7 @@ spec:
   containers:
   - name: catalogue
     imagePullPolicy: Always
-    image: bharattarun/catalogue:k8
+    image: bharattarun/catalogue:v1
     envFrom:
     - configMapRef:
         name: catalogue-config
