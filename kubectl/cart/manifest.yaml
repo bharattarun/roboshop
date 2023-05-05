@@ -18,7 +18,7 @@ spec:
   containers:
   - name: cart
     imagePullPolicy: Always
-    image: bharattarun/cart:v1
+    image: bharattarun/cart:k8
     envFrom:
     - configMapRef:
         name: cart-config
