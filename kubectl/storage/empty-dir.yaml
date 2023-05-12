@@ -31,9 +31,9 @@ spec:
     - name: filebeat-config
       mountPath: /usr/share/filebeat/filebeat.yml
       subPath: filebeat.yml
-volumes:
-- name: filebeat-config
-  configMap:
-    name: filebeat-config
-- name: nginx-log
-  emptyDir: {}
+  volumes:
+  - name: filebeat-config
+    configMap:
+      name: filebeat-config
+  - name: nginx-log
+    emptyDir: {}
