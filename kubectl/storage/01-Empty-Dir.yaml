@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: simple-weapp
+  labels:
+    app: webapp
+spec:
+  containers:
+  - name: main-application
+    image: nginx
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /var/logs/nginx
+  - name: sidecar-container
+    image: busybox
+    command: ["sh","-c","while true; do cat /var/logs/nginx/access.log; sleep 30; done"]
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /var/logs/nginx
+  volumes:
+  - name: shared-logs
+    emptyDir: {}
